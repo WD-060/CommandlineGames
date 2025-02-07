@@ -19,7 +19,7 @@ const riddleMeThis = (alphabet, shift) => {
             }
         }
 
-        //add new character to output string
+        //converts from ASCII back to letters
         output += String.fromCharCode(input);
     }
     //please god work
