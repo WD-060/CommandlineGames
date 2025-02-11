@@ -26,12 +26,15 @@ function translation (sentence) {
             pLWord = word.slice(2) + word.slice(0,2) + "ay";
         }
 // Preserving the capital letter for proper nouns
-        if (firstLetter === firstLetter.toUpperCase()) {
-            pLWord = word[0].toUpperCase() + pLWord.slice(1).toLowerCase();
-        } else {
-            pLWord = pLWord.toLowerCase();
+//Check if the word contanis a lower case letter
+        const hasUpperCase = /[A-Z]/.test(pLWord);
+        if (hasUpperCase) {
+//Convert the word to lower case
+            const lowCaseWord = pLWord.toLowerCase();
+//Capitalise the first letter
+            const firstLetterUpperCase = lowCaseWord.charAt(0).toUpperCase();
+            pLWord = firstLetterUpperCase + lowCaseWord.slice(1);
         }
-
         return pLWord;
     }).join(" ");
 }
