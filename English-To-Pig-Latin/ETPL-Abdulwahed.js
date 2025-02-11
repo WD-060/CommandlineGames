@@ -14,4 +14,4 @@ function toPigLatin(word) {     //The function with one  argument.
 }
 console.log(toPigLatin("hello")); // ellohay
 console.log(toPigLatin("apple")); // appleway
-console.log(toPigLatin("stronge")); // adenway
+console.log(toPigLatin("stronge")); // ongestray
