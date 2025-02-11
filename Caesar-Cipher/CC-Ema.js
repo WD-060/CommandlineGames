@@ -1,19 +1,20 @@
 
 const riddleMeThis = (alphabet, shift) => {
-    //const args = process.argv.slice(2);
-    // const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'u', 'v', 'w', 'x', 'y', 'z']; //define letters. apparently not
+  //  const args = process.argv.slice(2);
     let output = ""; // to hold whatever comes out
+  //  const inputString = `${args[0]}`;
+ //   const inputShift = args[1];
 
     // to apply to every letter where the initial shift is 0
 
     for(let i = 0; i < alphabet.length; i++) {  
-        let input = alphabet[i].charCodeAt(); //goes through ASCII number codes assigned to every letter https://www.w3schools.com/charsets/ref_html_ascii.asp
+        let input = alphabet[i].charCodeAt() //== inputString; //goes through ASCII number codes assigned to every letter https://www.w3schools.com/charsets/ref_html_ascii.asp
 
         //checks if it's a letter (uppercase || lowercase)
         if((input >= 65 && input <= 90) || (input >=97 && input <= 122)) {
             //shift by shift number
             input += shift;
-            //wrap around the alphabet. gotta understand this still
+            //wrap around the alphabet
             if((input > 90 && alphabet[i] <= 'Z') || input > 122) {
                     input -=26;
             }

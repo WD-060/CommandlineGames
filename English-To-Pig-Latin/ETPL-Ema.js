@@ -1,17 +1,12 @@
 const pigLatin = () => {
 
-    const args = process.argv.slice(2);
-    // we try to check if the given argument is empty?
-    // if(false && args !== '') {
-    //     console.error('Please use the English alphabet only. Motherfucker.');
-    //     return;
-    // }
+    const args = process.argv.slice(2); //dk how to make it check if args is a string
 
     let isFirstLetterVowel = undefined;
     let isSecondLetterVowel = undefined;
     let isFirstLetterConsonant = undefined;
     let isSecondLetterConsonant = undefined;
-    const myString = args[0]; //now how do I get it to repeat for every args after that
+    const myString = `${args[0]}`; //now how do I get it to repeat for every args after that
     console.log(myString);
     const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
     const consonants = ['b', 'c', 'd', 'f', 'g', 'l', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'];
@@ -45,17 +40,17 @@ const pigLatin = () => {
         const removeFirst = myString.slice(1);
         const removedFirst = myString[0];
         const case1 = removeFirst + removedFirst + 'ay';
-        console.log(case1);
+        console.log(`${case1}`);
 
     } else if (isFirstLetterConsonant && isSecondLetterConsonant) {
         const removeTwo = myString.slice(2);
         const removedTwo = myString[0] + myString[1];
         const case2 = removeTwo + removedTwo + 'ay';
-        console.log(case2);
+        console.log(`${case2}`);
 
     } else if (isFirstLetterVowel) {
         const vowelResult = myString + 'way';
-        console.log(vowelResult);
+        console.log(`${vowelResult}`);
     };
 
 
