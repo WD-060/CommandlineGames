@@ -43,9 +43,14 @@ function cypherEncryption(word) {
 
         // Get position of word character in alphabet
         let needle = alphabet.indexOf(word[i]);
-        
+
         // Calculate reach  
         let goal = needle + shift_num;
+
+        // handle backward move
+        if (goal < 0) {
+            goal = alphabet.length + goal;
+        }
         
         // handle alphabet limit
         if(goal > alphabet.length) {
