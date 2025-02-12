@@ -5,7 +5,7 @@ function fightTheBeast() {
     const weapons = ["rock", "paper", "scissors"] 
     const defenseWeapon = weapons[Math.floor(Math.random() * weapons.length)]
 
-    console.log(`You draw your ${weapons}, a the vile beast sharpens its ${defenseWeapon}.`);
+    console.log(`You draw your ${weapons}, as the vile beast sharpens its ${defenseWeapon}.`);
 
     if (weapons === defenseWeapon) {
     console.log("You exchanged strikes with the foul beast, but none drew blood!")
