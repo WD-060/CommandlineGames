@@ -1,29 +1,44 @@
 const args = process.argv.slice(2);
 
 if (args.length === 0) {
-  console.error("Please provide a word as an argument.");
+  console.error("Please provide a phrase as an argument.");
   process.exit(1);
 }
 
-let pigLatinWord = args[0];
+const phrase = args.join(" ");
+if (!/^[a-zA-Z\s]+$/.test(phrase)) {
+  console.error("The phrase must contain only letters and spaces.");
+  process.exit(1);
+}
 
-const translateToPigLatin = (word) => {
-  if (["a", "e", "i", "o", "u"].includes(word[0].toLocaleLowerCase())) {
-    pigLatinWord = word + "way";
-  } else {
-    if (
-      !["a", "e", "i", "o", "u"].includes(word[1].toLocaleLowerCase()) &&
-      !["a", "e", "i", "o", "u"].includes(word[2].toLocaleLowerCase())
-    ) {
-      pigLatinWord = word.slice(3) + word.slice(0, 3) + "ay";
-    } else {
-      pigLatinWord = word.slice(2) + word.slice(0, 2) + "ay";
-    }
-  }
-  return pigLatinWord;
+const translateToPigLatin = (phrase) => {
+  return phrase
+    .split(" ")
+    .map((word) => {
+      if (word.length < 3) {
+        console.error(`The word "${word}" must have at least three characters.`);
+        process.exit(1);
+      }
+
+      if (["a", "e", "i", "o", "u"].includes(word[0].toLowerCase())) {
+        return word + "way";
+      } else if (
+        !["a", "e", "i", "o", "u"].includes(word[0].toLowerCase()) &&
+        !["a", "e", "i", "o", "u"].includes(word[1].toLowerCase())
+      ) {
+        return word.slice(2) + word.slice(0, 2) + "ay";
+      } else {
+        return word.slice(1) + word.slice(0, 1) + "ay";
+      }
+    })
+    .join(" ");
 };
 
-console.log(translateToPigLatin(pigLatinWord));
+const pigLatinPhrase = translateToPigLatin(phrase);
+console.log(pigLatinPhrase);
+
+
+
 
 // console.log(translateToPigLatin("Charles"));
 // console.log(translateToPigLatin("Musa"));
